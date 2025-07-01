@@ -1,10 +1,16 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const menuItems = [
     { 
@@ -46,13 +52,23 @@ const Header = () => {
           label: 'CORPORALES',
           isCategory: true,
           items: [
-            { label: 'SENOS', href: '/procedimientos/explantacion-mamaria' },
-            { label: 'MAMOPLASTIA DE AUMENTO', href: '/procedimientos/mamoplastia-aumento' },
-            { label: 'MAMOPLASTIA DE REDUCCIÓN', href: '/procedimientos/mamoplastia-reduccion' },
-            { label: 'PEXIA - ELEVACIÓN MAMARIA', href: '/procedimientos/pexia' },
-            { label: 'CORPORAL', href: '/procedimientos/corporal' },
-            { label: 'ABDOMINOPLASTIA HD', href: '/procedimientos/abdominoplastia' },
-            { label: 'LIPOSUCCIÓN', href: '/procedimientos/liposuccion' }
+            { 
+              label: 'SENOS',
+              isSubcategory: true,
+              items: [
+                { label: 'MAMOPLASTIA DE AUMENTO', href: '/procedimientos/mamoplastia-aumento' },
+                { label: 'MAMOPLASTIA DE REDUCCIÓN', href: '/procedimientos/mamoplastia-reduccion' },
+                { label: 'PEXIA - ELEVACIÓN MAMARIA', href: '/procedimientos/pexia' }
+              ]
+            },
+            { 
+              label: 'CORPORAL',
+              isSubcategory: true,
+              items: [
+                { label: 'ABDOMINOPLASTIA HD', href: '/procedimientos/abdominoplastia' },
+                { label: 'LIPOSUCCIÓN', href: '/procedimientos/liposuccion' }
+              ]
+            }
           ]
         },
         {
@@ -69,10 +85,7 @@ const Header = () => {
       label: 'GALERÍA', 
       href: '/galeria',
       hasDropdown: true,
-      subItems: [
-        { label: 'FOTOS PRE Y POST', href: '/galeria/antes-despues' },
-        { label: 'TESTIMONIOS', href: '/galeria/testimonios' }
-      ]
+     
     },
     { 
       label: 'PACIENTES EXTRANJEROS', 
@@ -190,7 +203,7 @@ const Header = () => {
                 </a>
 
                 {/* Dropdown Menu */}
-                {item.hasDropdown && openDropdown === item.label && (
+                {item.hasDropdown && openDropdown === item.label && isMounted && (
                   <div 
                     className="absolute top-full left-0 mt-2 bg-white shadow-2xl rounded-xl border border-gray-100 py-4 z-50 animate-fadeIn"
                     onMouseEnter={handleDropdownEnter}
@@ -198,7 +211,7 @@ const Header = () => {
                   >
                     {item.label === 'PROCEDIMIENTOS' ? (
                       // Mega menú especial para PROCEDIMIENTOS
-                      <div className="w-[800px] grid grid-cols-3 gap-6 px-6">
+                      <div className="w-[900px] grid grid-cols-3 gap-6 px-6">
                         {item.subItems?.map((category, catIndex) => (
                           <div key={catIndex} className="space-y-3">
                             {/* Header de categoría */}
@@ -212,15 +225,43 @@ const Header = () => {
                             {/* Items de la categoría */}
                             <div className="space-y-1">
                               {'items' in category && Array.isArray(category.items) && category.items.map((subItem, subIndex) => (
-                                <a 
-                                  key={subIndex}
-                                  href={subItem.href} 
-                                  className="group flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-blue-700 transition-all duration-200 transform hover:translate-x-1"
-                                  onClick={() => setOpenDropdown(null)} // Cerrar al hacer clic
-                                >
-                                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full group-hover:bg-blue-500 transition-colors"></div>
-                                  <span className="text-sm font-medium">{subItem.label}</span>
-                                </a>
+                                <div key={subIndex}>
+                                  {/* Si es una subcategoría (SENOS o CORPORAL) */}
+                                  {subItem.isSubcategory ? (
+                                    <div className="mb-4">
+                                      {/* Título de subcategoría */}
+                                      <div className="flex items-center space-x-2 mb-2 px-3 py-2 bg-blue-50 rounded-lg">
+                                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                                        <span className="text-sm font-bold text-blue-800 uppercase">{subItem.label}</span>
+                                      </div>
+                                      
+                                      {/* Items de la subcategoría */}
+                                      <div className="space-y-1 ml-3">
+                                        {subItem.items?.map((subSubItem, subSubIndex) => (
+                                          <a 
+                                            key={subSubIndex}
+                                            href={subSubItem.href} 
+                                            className="group flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-blue-700 transition-all duration-200 transform hover:translate-x-1"
+                                            onClick={() => setOpenDropdown(null)}
+                                          >
+                                            <div className="w-1 h-1 bg-gray-400 rounded-full group-hover:bg-blue-500 transition-colors"></div>
+                                            <span className="text-xs font-medium">{subSubItem.label}</span>
+                                          </a>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    /* Items normales sin subcategoría */
+                                    <a 
+                                      href={subItem.href} 
+                                      className="group flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-blue-700 transition-all duration-200 transform hover:translate-x-1"
+                                      onClick={() => setOpenDropdown(null)}
+                                    >
+                                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full group-hover:bg-blue-500 transition-colors"></div>
+                                      <span className="text-sm font-medium">{subItem.label}</span>
+                                    </a>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           </div>
@@ -236,7 +277,7 @@ const Header = () => {
                                 key={subIndex}
                                 href={subItem.href} 
                                 className="group flex items-center space-x-3 px-4 py-4 rounded-lg text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-blue-700 transition-all duration-200 transform hover:translate-x-2 hover:shadow-md"
-                                onClick={() => setOpenDropdown(null)} // Cerrar al hacer clic
+                                onClick={() => setOpenDropdown(null)}
                               >
                                 <div className="flex-shrink-0">
                                   <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center group-hover:from-blue-500 group-hover:to-blue-600 transition-all duration-200">
