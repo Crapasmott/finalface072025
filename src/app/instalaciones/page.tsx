@@ -66,71 +66,79 @@ const ConsultorioSection = () => {
             </div>
           </div>
 
-          {/* Galería de imágenes del consultorio */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Imagen 1 - Placa del consultorio */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/placa-andres.jpg"
-                alt="Placa del consultorio Dr. Andrés Pérez"
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EPlaca Consultorio%3C/text%3E%3C/svg%3E"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Galería de imágenes del consultorio - SOLO CAMBIO ESTA PARTE */}
+          <div className="space-y-8">
+            {/* Primera fila - 3 fotos */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Imagen 1 - Placa del consultorio */}
+              <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src="/images/placa-andres.jpg"
+                  alt="Placa del consultorio Dr. Andrés Pérez"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EPlaca Consultorio%3C/text%3E%3C/svg%3E"
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+
+              {/* Imagen 2 - Consultorio principal */}
+              <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src="/images/ofis1.jpg"
+                  alt="Consultorio principal"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EConsultorio Principal%3C/text%3E%3C/svg%3E"
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+
+              {/* Imagen 3 - Sala de espera */}
+              <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src="/images/ofis2.jpg"
+                  alt="Sala de espera"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3ESala de Espera%3C/text%3E%3C/svg%3E"
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             </div>
 
-            {/* Imagen 2 - Consultorio principal */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/ofis1.jpg"
-                alt="Consultorio principal"
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EConsultorio Principal%3C/text%3E%3C/svg%3E"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
+            {/* Segunda fila - 2 fotos centradas */}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+                {/* Imagen 4 - Recepción */}
+                <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                  <img
+                    src="/images/ofis3.jpg"
+                    alt="Área de recepción"
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3ERecepción%3C/text%3E%3C/svg%3E"
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
 
-            {/* Imagen 3 - Sala de espera */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/ofis2.jpg"
-                alt="Sala de espera"
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3ESala de Espera%3C/text%3E%3C/svg%3E"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            {/* Imagen 4 - Recepción */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/ofis3.jpg"
-                alt="Área de recepción"
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3ERecepción%3C/text%3E%3C/svg%3E"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            {/* Imagen 5 - Oficina */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/ofis4.jpg"
-                alt="Oficina del doctor"
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EOficina del Doctor%3C/text%3E%3C/svg%3E"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Imagen 5 - Oficina */}
+                <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                  <img
+                    src="/images/ofis4.jpg"
+                    alt="Oficina del doctor"
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%236b7280'%3EOficina del Doctor%3C/text%3E%3C/svg%3E"
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

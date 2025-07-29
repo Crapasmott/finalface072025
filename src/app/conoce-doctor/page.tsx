@@ -167,8 +167,7 @@ const EducationSection = () => {
                 <div className="text-4xl font-bold">Rosario</div>
               </div>
             </div>
-            <h3 className="text-xl font-bold text-red-600">Universidad del</h3>
-            <h3 className="text-xl font-bold text-red-600">Rosario</h3>
+            
           </div>
           
           <div className="text-center">
@@ -191,9 +190,6 @@ const EducationSection = () => {
                 <div className="text-sm">DE COLOMBIA</div>
               </div>
             </div>
-            <h3 className="text-xl font-bold text-gray-700">UNIVERSIDAD</h3>
-            <h3 className="text-xl font-bold text-gray-700">NACIONAL</h3>
-            <h3 className="text-sm text-gray-600">DE COLOMBIA</h3>
           </div>
         </div>
       </div>

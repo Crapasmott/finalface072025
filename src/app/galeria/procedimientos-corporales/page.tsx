@@ -71,224 +71,112 @@ const Footer = () => {
   );
 };
 
-export default function ProcedimientosFacialesPage() {
+export default function ProcedimientosCorporalesPage() {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState<string>('nariz');
+  const [selectedCategory, setSelectedCategory] = useState<string>('senos');
 
   const procedureCategories: ProcedureCategory[] = [
     {
-      id: 'nariz',
-      title: 'Procedimientos de Nariz',
-      description: 'Cirugías especializadas para mejorar la forma, función y armonía nasal.',
-      imageUrl: '/images/categories/nariz-category.jpg',
+      id: 'senos',
+      title: 'Procedimientos de Senos',
+      description: 'Cirugías especializadas para mejorar la forma, tamaño y posición de los senos.',
+      imageUrl: '/images/categories/senos-category.jpg',
       procedures: [
         {
-          id: 'rinoplastia-primaria',
-          name: 'Rinoplastia Primaria',
-          description: 'Primera cirugía nasal para mejorar forma y función respiratoria.',
-          imageUrl: '/images/procedures/rinoplastia-primaria.jpg',
-          href: '/galeria/procedimientos-faciales/rinoplastia',
-          caseCount: 15
-        },
-        {
-          id: 'rinoplastia-ultrasonica',
-          name: 'Rinoplastia Ultrasónica',
-          description: 'Técnica avanzada que preserva tejidos blandos con tecnología ultrasónica.',
-          imageUrl: '/images/procedures/rinoplastia-ultrasonica.jpg',
-          href: '/galeria/procedimientos-faciales/elevacion-cola-cejas',
-          caseCount: 12
-        },
-        {
-          id: 'rinoplastia-secundaria',
-          name: 'Rinoplastia Secundaria',
-          description: 'Corrección y refinamiento de rinoplastias previas.',
-          imageUrl: '/images/procedures/rinoplastia-secundaria.jpg',
-          href: '/galeria/procedimientos-faciales/lifting-facial-hamaca',
+          id: 'mamoplastia-aumento',
+          name: 'Mamoplastia de Aumento',
+          description: 'Aumento del volumen mamario con implantes de última generación.',
+          imageUrl: '/images/procedures/mamoplastia-aumento.jpg',
+          href: '/galeria/procedimientos-corporales/senos/mamoplastia-aumento',
           caseCount: 8
         },
         {
-          id: 'rinoplastia-etnica',
-          name: 'Rinoplastia Étnica',
-          description: 'Rinoplastia especializada respetando características étnicas específicas.',
-          imageUrl: '/images/procedures/rinoplastia-etnica.jpg',
-          href: '/galeria/procedimientos-faciales/lip-lift',
+          id: 'mamoplastia-reduccion',
+          name: 'Mamoplastia de Reducción',
+          description: 'Reducción del tamaño mamario para mayor comodidad y proporción.',
+          imageUrl: '/images/procedures/mamoplastia-reduccion.jpg',
+          href: '/galeria/procedimientos-corporales/senos/mamoplastia-reduccion',
           caseCount: 6
-        }
-      ]
-    },
-    {
-      id: 'ojos',
-      title: 'Procedimientos de Ojos',
-      description: 'Cirugías para rejuvenecer y mejorar la apariencia de los párpados.',
-      imageUrl: '/images/categories/ojos-category.jpg',
-      procedures: [
-        {
-          id: 'blefaroplastia-superior',
-          name: 'Blefaroplastia Superior',
-          description: 'Eliminación de exceso de piel en párpados superiores.',
-          imageUrl: '/images/procedures/blefaroplastia-superior.jpg',
-          href: '/galeria/procedimientos-faciales/ojos/blefaroplastia-superior',
-          caseCount: 18
         },
         {
-          id: 'blefaroplastia-inferior',
-          name: 'Blefaroplastia Inferior',
-          description: 'Corrección de bolsas y exceso de piel en párpados inferiores.',
-          imageUrl: '/images/procedures/blefaroplastia-inferior.jpg',
-          href: '/galeria/procedimientos-faciales/ojos/blefaroplastia-inferior',
-          caseCount: 14
-        },
-        {
-          id: 'blefaroplastia-360',
-          name: 'Blefaroplastia 360°',
-          description: 'Tratamiento completo de párpados superiores e inferiores.',
-          imageUrl: '/images/procedures/blefaroplastia-360.jpg',
-          href: '/galeria/procedimientos-faciales/ojos/blefaroplastia-360',
-          caseCount: 10
-        },
-        {
-          id: 'elevacion-cejas',
-          name: 'Elevación Cola de Cejas',
-          description: 'Rejuvenecimiento de la zona superior del rostro elevando las cejas.',
-          imageUrl: '/images/procedures/elevacion-cejas.jpg',
-          href: '/galeria/procedimientos-faciales/ojos/elevacion-cejas',
-          caseCount: 9
-        }
-      ]
-    },
-    {
-      id: 'lifting',
-      title: 'Lifting Facial',
-      description: 'Cirugías integrales para rejuvenecimiento facial y cervical.',
-      imageUrl: '/images/categories/lifting-category.jpg',
-      procedures: [
-        {
-          id: 'lifting-hamaca',
-          name: 'Lifting Hamaca Mejillas y Cuello',
-          description: 'Técnica de lifting facial que reposiciona tejidos con soporte tipo hamaca.',
-          imageUrl: '/images/procedures/lifting-hamaca.jpg',
-          href: '/galeria/procedimientos-faciales/lifting/lifting-hamaca',
-          caseCount: 12
-        },
-        {
-          id: 'mini-lifting',
-          name: 'Mini Lifting',
-          description: 'Lifting facial mínimamente invasivo con técnica SMAS modificada.',
-          imageUrl: '/images/procedures/mini-lifting.jpg',
-          href: '/galeria/procedimientos-faciales/lifting/mini-lifting',
-          caseCount: 8
-        },
-        {
-          id: 'lifting-cuello',
-          name: 'Lifting de Cuello',
-          description: 'Rejuvenecimiento específico del área cervical eliminando flacidez.',
-          imageUrl: '/images/procedures/lifting-cuello.jpg',
-          href: '/galeria/procedimientos-faciales/lifting/lifting-cuello',
-          caseCount: 7
-        },
-        {
-          id: 'lifting-temporal',
-          name: 'Lifting Temporal',
-          description: 'Elevación específica de la zona temporal y frontal.',
-          imageUrl: '/images/procedures/lifting-temporal.jpg',
-          href: '/galeria/procedimientos-faciales/lifting/lifting-temporal',
+          id: 'pexia',
+          name: 'Pexia - Elevación Mamaria',
+          description: 'Elevación y reposicionamiento de senos caídos para un perfil juvenil.',
+          imageUrl: '/images/procedures/pexia.jpg',
+          href: '/galeria/procedimientos-corporales/senos/pexia',
           caseCount: 5
-        }
-      ]
-    },
-    {
-      id: 'rejuvenecimiento',
-      title: 'Rejuvenecimiento Facial',
-      description: 'Técnicas avanzadas para restaurar volumen y juventud facial.',
-      imageUrl: '/images/categories/rejuvenecimiento-category.jpg',
-      procedures: [
-        {
-          id: 'lipofilling-celulas-madre',
-          name: 'Lipofilling con Células Madre',
-          description: 'Relleno con grasa propia enriquecida con células madre para restaurar volumen.',
-          imageUrl: '/images/procedures/lipofilling-celulas-madre.jpg',
-          href: '/galeria/procedimientos-faciales/rejuvenecimiento/lipofilling-celulas-madre',
-          caseCount: 16
         },
         {
-          id: 'lipofilling-facial',
-          name: 'Lipofilling Facial',
-          description: 'Injerto de grasa autóloga para restaurar volumen facial perdido.',
-          imageUrl: '/images/procedures/lipofilling-facial.jpg',
-          href: '/galeria/procedimientos-faciales/rejuvenecimiento/lipofilling-facial',
-          caseCount: 13
-        },
-        {
-          id: 'bichectomia',
-          name: 'Bichectomía',
-          description: 'Extracción de bolsas de Bichat para definir contorno facial.',
-          imageUrl: '/images/procedures/bichectomia.jpg',
-          href: '/galeria/procedimientos-faciales/rejuvenecimiento/bichectomia',
-          caseCount: 11
-        }
-      ]
-    },
-    {
-      id: 'labios-menton',
-      title: 'Labios y Mentón',
-      description: 'Procedimientos para mejorar la proyección y armonía del tercio inferior facial.',
-      imageUrl: '/images/categories/labios-menton-category.jpg',
-      procedures: [
-        {
-          id: 'lip-lift',
-          name: 'Lip Lift Elevación del Labio',
-          description: 'Elevación del labio superior para mayor definición y proyección.',
-          imageUrl: '/images/procedures/lip-lift.jpg',
-          href: '/galeria/procedimientos-faciales/labios-menton/lip-lift',
-          caseCount: 9
-        },
-        {
-          id: 'mentoplastia-aumento',
-          name: 'Mentoplastia de Aumento',
-          description: 'Aumento de mentón con implante para mejorar el perfil facial.',
-          imageUrl: '/images/procedures/mentoplastia-aumento.jpg',
-          href: '/galeria/procedimientos-faciales/labios-menton/mentoplastia-aumento',
-          caseCount: 7
-        },
-        {
-          id: 'genioplastia',
-          name: 'Genioplastia',
-          description: 'Cirugía ósea de mentón para corrección de prognatismo o retrognatia.',
-          imageUrl: '/images/procedures/genioplastia.jpg',
-          href: '/galeria/procedimientos-faciales/labios-menton/genioplastia',
+          id: 'ginecomastia',
+          name: 'Ginecomastia',
+          description: 'Corrección del exceso de tejido mamario en hombres.',
+          imageUrl: '/images/procedures/ginecomastia.jpg',
+          href: '/galeria/procedimientos-corporales/senos/ginecomastia',
           caseCount: 4
         }
       ]
     },
     {
-      id: 'orejas',
-      title: 'Procedimientos de Orejas',
-      description: 'Cirugías correctivas para mejorar la forma y posición de las orejas.',
-      imageUrl: '/images/categories/orejas-category.jpg',
+      id: 'corporal',
+      title: 'Procedimientos Corporales',
+      description: 'Cirugías para contornear y esculpir la silueta corporal.',
+      imageUrl: '/images/categories/corporal-category.jpg',
       procedures: [
         {
-          id: 'otoplastia-bilateral',
-          name: 'Otoplastia Bilateral',
-          description: 'Corrección de orejas prominentes en ambos lados.',
-          imageUrl: '/images/procedures/otoplastia-bilateral.jpg',
-          href: '/galeria/procedimientos-faciales/orejas/otoplastia-bilateral',
-          caseCount: 8
+          id: 'abdominoplastia',
+          name: 'Abdominoplastia HD',
+          description: 'Eliminación de exceso de piel y grasa abdominal con definición muscular.',
+          imageUrl: '/images/procedures/abdominoplastia.jpg',
+          href: '/galeria/procedimientos-corporales/corporal/abdominoplastia',
+          caseCount: 12
         },
         {
-          id: 'otoplastia-unilateral',
-          name: 'Otoplastia Unilateral',
-          description: 'Corrección de oreja prominente en un solo lado.',
-          imageUrl: '/images/procedures/otoplastia-unilateral.jpg',
-          href: '/galeria/procedimientos-faciales/orejas/otoplastia-unilateral',
-          caseCount: 5
+          id: 'liposuccion',
+          name: 'Liposucción',
+          description: 'Eliminación selectiva de grasa localizada para contornear la figura.',
+          imageUrl: '/images/procedures/liposuccion.jpg',
+          href: '/galeria/procedimientos-corporales/corporal/liposuccion',
+          caseCount: 15
         },
         {
-          id: 'reconstruccion-auricular',
-          name: 'Reconstrucción Auricular',
-          description: 'Reconstrucción de defectos auriculares congénitos o traumáticos.',
-          imageUrl: '/images/procedures/reconstruccion-auricular.jpg',
-          href: '/galeria/procedimientos-faciales/orejas/reconstruccion-auricular',
-          caseCount: 3
+          id: 'gluteoplastia',
+          name: 'Gluteoplastia',
+          description: 'Aumento y remodelación de glúteos para una silueta atractiva.',
+          imageUrl: '/images/procedures/gluteoplastia.jpg',
+          href: '/galeria/procedimientos-corporales/corporal/gluteoplastia',
+          caseCount: 9
+        },
+        {
+          id: 'brazioplastia',
+          name: 'Brazioplastia',
+          description: 'Eliminación de exceso de piel en brazos para un contorno definido.',
+          imageUrl: '/images/procedures/brazioplastia.jpg',
+          href: '/galeria/procedimientos-corporales/corporal/brazioplastia',
+          caseCount: 7
+        }
+      ]
+    },
+    {
+      id: 'intimos',
+      title: 'Procedimientos Íntimos',
+      description: 'Cirugías especializadas en rejuvenecimiento y estética íntima.',
+      imageUrl: '/images/categories/intimos-category.jpg',
+      procedures: [
+        {
+          id: 'labioplastia',
+          name: 'Labioplastia',
+          description: 'Remodelación de labios menores para mayor comodidad y estética.',
+          imageUrl: '/images/procedures/labioplastia.jpg',
+          href: '/galeria/procedimientos-corporales/intimos/labioplastia',
+          caseCount: 6
+        },
+        {
+          id: 'vaginoplastia',
+          name: 'Vaginoplastia',
+          description: 'Rejuvenecimiento vaginal para mejorar función y estética.',
+          imageUrl: '/images/procedures/vaginoplastia.jpg',
+          href: '/galeria/procedimientos-corporales/intimos/vaginoplastia',
+          caseCount: 4
         }
       ]
     }
@@ -323,7 +211,7 @@ export default function ProcedimientosFacialesPage() {
           <nav className="text-sm text-gray-600">
             <Link href="/galeria" className="hover:text-gray-800">Galería</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-800 font-medium">Procedimientos Faciales</span>
+            <span className="text-gray-800 font-medium">Procedimientos Corporales</span>
           </nav>
         </div>
       </div>
@@ -333,7 +221,7 @@ export default function ProcedimientosFacialesPage() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Galería de Procedimientos Faciales
+            Galería de Procedimientos Corporales
           </h1>
           <p className="text-xl text-gray-600 mb-2">
             Explora los resultados reales de nuestros pacientes

@@ -24,8 +24,7 @@ const Header = () => {
       hasDropdown: true,
       subItems: [
         { label: 'CONOCE AL DR. PÉREZ', href: '/conoce-doctor' },
-        { label: 'MIS TÉCNICAS', href: '/dr-perez/tecnicas' },
-        { label: 'INSTALACIONES Y STAFF', href: '/instalaciones' }
+        { label: 'INSTALACIONES Y STAFF', href: '/instalaciones' },
       ]
     },
     { 
@@ -107,7 +106,7 @@ const Header = () => {
       href: '/recursos',
       hasDropdown: true,
       subItems: [
-        { label: 'TU PASO A PASO', href: '/recursos/paso-a-paso' },
+        { label: 'TU PASO A PASO', href: '/paso-a-paso' },
         { label: 'GUÍAS PRE Y POSTOPERATORIAS', href: '/recursos/guias' }
       ]
     }
